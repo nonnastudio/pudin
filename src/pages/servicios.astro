@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Mascot from '../components/Mascot.astro';
+---
+
+<Layout 
+  title="Servicios - Pudin Production Studio" 
+  description="Todo lo que ofrece nuestro equipo de Pudin: Creatividad, Producción, Post-producción e IA."
+>
+  <!-- Page Title -->
+  <section class="w-full px-6 md:px-12 py-8 max-w-7xl mx-auto">
+    <div class="flex items-start justify-between">
+      <h1 class="text-7xl sm:text-9xl md:text-[10rem] font-bold tracking-tighter leading-none uppercase">
+        SERVICIOS
+      </h1>
+    </div>
+    <p class="mt-4 text-sm sm:text-base font-heading font-medium uppercase tracking-widest text-neutral-500 text-center">
+      TODO LO QUE OFRECE NUESTRO EQUIPO DE PUDIN.
+    </p>
+    <div class="flex justify-center mt-6">
+      <Mascot size={80} className="w-16 h-16 md:w-20 md:h-20" />
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="w-full border-t-4 border-black"></div>
+
+  <!-- CREATIVIDAD -->
+  <section class="w-full px-6 md:px-12 py-20 max-w-7xl mx-auto flex flex-col items-center text-center">
+    <h2 class="text-6xl sm:text-8xl font-bold tracking-tight uppercase mb-6">
+      CREATIVIDAD
+    </h2>
+    <p class="text-xs sm:text-sm font-heading font-semibold uppercase tracking-widest text-neutral-500 mb-16 max-w-md">
+      DESARROLLO CREATIVO CENTRADO EN LA CREACIÓN DE CONTENIDO RÁPIDO.
+    </p>
+
+    <!-- Team talent big text - Orange, condensed, bold -->
+    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase text-center text-brand-orange leading-tight tracking-tight max-w-5xl px-4">
+      <p>FILMMAKERS, FOTÓGRAFOS,</p>
+      <p>DISEÑADORES GRÁFICOS,</p>
+      <p>CREADORES DE CONTENIDO,</p>
+      <p>ANIMADORES, SOUND DESIGN</p>
+      <p>& ARTISTAS IA</p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="w-full border-t-2 border-neutral-200"></div>
+
+  <!-- PRODUCCIÓN -->
+  <section class="w-full px-6 md:px-12 py-20 max-w-7xl mx-auto flex flex-col items-center text-center">
+    <h2 class="text-6xl sm:text-8xl font-bold tracking-tight uppercase mb-6">
+      PRODUCCIÓN
+    </h2>
+    <p class="text-xs sm:text-sm font-heading font-semibold uppercase tracking-widest text-neutral-500 max-w-md leading-relaxed">
+      UN EQUIPO DE PRODUCCIÓN CON LA EXPERIENCIA Y LA EXIGENCIA PUBLICITARIA AL SERVICIO DEL CONTENIDO RÁPIDO.
+    </p>
+
+    <!-- Visual accent -->
+    <div class="mt-16 grid grid-cols-3 gap-6 w-full max-w-lg">
+      {['DIRECCIÓN', 'CÁMARA', 'SONIDO'].map((item) => (
+        <div class="flex flex-col items-center gap-2 p-4 border-2 border-black rounded-xl hover:bg-black hover:text-[#fbf9f4] transition-all duration-300 cursor-default group">
+          <span class="text-2xl group-hover:text-brand-orange transition-colors duration-300">●</span>
+          <span class="text-xs font-heading font-bold uppercase tracking-widest">{item}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="w-full border-t-2 border-neutral-200"></div>
+
+  <!-- POST-PRODUCCIÓN -->
+  <section class="w-full px-6 md:px-12 py-20 max-w-7xl mx-auto flex flex-col items-center text-center">
+    <h2 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight uppercase mb-6">
+      POST-PRODUCCIÓN
+    </h2>
+    <p class="text-xs sm:text-sm font-heading font-semibold uppercase tracking-widest text-neutral-500 max-w-sm leading-relaxed">
+      AQUÍ ES DONDE LE SACAMOS EL BRILLO FINAL AL TRABAJO BIEN HECHO.
+    </p>
+
+    <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-2xl">
+      {['EDICIÓN', 'COLOR', 'VFX', 'SONIDO'].map((item) => (
+        <div class="flex flex-col items-center gap-2 p-4 border-2 border-black rounded-xl hover:bg-brand-orange hover:border-brand-orange transition-all duration-300 cursor-default group">
+          <span class="text-2xl">✦</span>
+          <span class="text-xs font-heading font-bold uppercase tracking-widest">{item}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="w-full border-t-2 border-neutral-200"></div>
+
+  <!-- IA -->
+  <section class="w-full px-6 md:px-12 py-20 max-w-7xl mx-auto flex flex-col items-center text-center">
+    <h2 class="text-7xl sm:text-9xl font-bold tracking-tight uppercase mb-6">
+      IA
+    </h2>
+    <p class="text-xs sm:text-sm font-heading font-semibold uppercase tracking-widest text-neutral-500 max-w-sm leading-relaxed">
+      PARA QUE LAS IDEAS NUNCA TENGAN LÍMITES.
+    </p>
+
+    <!-- IA gradient accent block -->
+    <div class="mt-12 w-full max-w-2xl h-2 bg-gradient-to-r from-brand-orange via-black to-brand-orange rounded-full"></div>
+  </section>
+</Layout>

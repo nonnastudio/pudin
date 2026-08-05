@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Mascot from '../components/Mascot.astro';
+---
+
+<Layout 
+  title="Contacto - Pudin Production Studio"
+  description="Contacta con Pudin Production Studio. Trabajamos en Madrid. info@quieropudin.com"
+>
+  <!-- Page Header -->
+  <section class="w-full px-6 md:px-12 py-6 max-w-7xl mx-auto">
+    <h1 class="text-7xl sm:text-9xl md:text-[11rem] font-bold tracking-tighter leading-none uppercase text-center">
+      CONTACTO
+    </h1>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="w-full max-w-3xl mx-auto px-6 md:px-12 py-12">
+    <form
+      id="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="w-full"
+    >
+      <!-- Web3Forms Access Key - replace with actual key -->
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE" />
+      <input type="hidden" name="subject" value="Nuevo mensaje desde Pudin website" />
+      <input type="hidden" name="redirect" value="" />
+      <input type="hidden" name="from_name" value="Pudin Website" />
+
+      <!-- Form Fields Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <!-- NOMBRE -->
+        <div class="flex flex-col gap-2">
+          <label for="nombre" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+            NOMBRE<span class="text-brand-orange">*</span>
+          </label>
+          <input 
+            id="nombre"
+            name="nombre"
+            type="text"
+            required
+            placeholder=""
+            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+          />
+        </div>
+
+        <!-- EMAIL -->
+        <div class="flex flex-col gap-2">
+          <label for="email" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+            EMAIL<span class="text-brand-orange">*</span>
+          </label>
+          <input 
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder=""
+            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+          />
+        </div>
+
+        <!-- TELÉFONO -->
+        <div class="flex flex-col gap-2">
+          <label for="telefono" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+            TELÉFONO
+          </label>
+          <input 
+            id="telefono"
+            name="telefono"
+            type="tel"
+            placeholder=""
+            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+          />
+        </div>
+
+        <!-- ASUNTO -->
+        <div class="flex flex-col gap-2">
+          <label for="asunto" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+            ASUNTO
+          </label>
+          <input 
+            id="asunto"
+            name="asunto"
+            type="text"
+            placeholder=""
+            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Privacy + Submit row -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mt-10">
+        <!-- Privacy Check -->
+        <div class="flex items-center gap-3">
+          <input
+            id="privacidad"
+            name="privacidad"
+            type="checkbox"
+            required
+            class="w-5 h-5 accent-brand-orange cursor-pointer border-2 border-black rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-orange"
+          />
+          <label for="privacidad" class="text-xs font-heading font-semibold uppercase tracking-widest text-neutral-700 cursor-pointer">
+            ACEPTO LA POLÍTICA DE PRIVACIDAD<span class="text-brand-orange">*</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          id="submit-btn"
+          type="submit"
+          class="text-5xl sm:text-6xl font-bold uppercase tracking-wide hover:text-brand-orange transition-colors duration-200 cursor-pointer focus:outline-none active:scale-95"
+        >
+          ENVIAR
+        </button>
+      </div>
+
+      <!-- Success/Error messages -->
+      <div id="form-feedback" class="hidden mt-8 p-4 rounded-xl text-center font-heading font-semibold text-sm uppercase tracking-widest"></div>
+    </form>
+  </section>
+
+  <!-- Mascot Row -->
+  <section class="w-full py-8 px-6 overflow-hidden">
+    <div class="flex justify-center items-end gap-2 sm:gap-6 max-w-3xl mx-auto flex-wrap">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div class={`transition-transform duration-1000 hover:-translate-y-3 ${i % 2 === 0 ? 'animate-bounce' : ''}`} style={`animation-delay: ${i * 0.15}s`}>
+          <Mascot size={90} className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" />
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const feedback = document.getElementById('form-feedback') as HTMLDivElement;
+
+  if (form && feedback) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+      submitBtn.textContent = 'ENVIANDO...';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+      const object: Record<string, string> = {};
+      formData.forEach((value, key) => { object[key] = value.toString(); });
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(object)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          feedback.textContent = '✓ Mensaje enviado con éxito. Nos pondremos en contacto pronto.';
+          feedback.className = 'mt-8 p-4 rounded-xl text-center font-heading font-semibold text-sm uppercase tracking-widest bg-green-100 text-green-800';
+          form.reset();
+        } else {
+          throw new Error('Error al enviar');
+        }
+      } catch {
+        feedback.textContent = '✗ Error al enviar. Por favor, intenta de nuevo o escríbenos a info@quieropudin.com';
+        feedback.className = 'mt-8 p-4 rounded-xl text-center font-heading font-semibold text-sm uppercase tracking-widest bg-red-100 text-red-800';
+      } finally {
+        submitBtn.textContent = 'ENVIAR';
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>

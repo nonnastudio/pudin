@@ -1,0 +1,109 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Pudin - Production Studio", 
+  description = "Somos Pudin Production Studio. De la idea al contenido viral a la velocidad del contenido." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Unique element ids are preserved for automated test environments -->
+	</head>
+	<body class="flex flex-col min-h-screen">
+		<Header />
+    
+		<main class="flex-grow flex flex-col">
+			<slot />
+		</main>
+
+		<Footer />
+
+    <!-- Fullscreen Menu Overlay -->
+    <div id="nav-menu" class="fixed inset-0 bg-black text-[#fbf9f4] z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-6 md:p-12">
+      <!-- Menu Header -->
+      <div class="flex justify-between items-center w-full">
+        <span class="text-3xl md:text-4xl font-display font-bold text-brand-orange">
+          PUDIN
+        </span>
+        <button id="menu-close" class="text-3xl md:text-4xl font-display font-bold text-brand-orange hover:opacity-85 focus:outline-none cursor-pointer">
+          CERRAR
+        </button>
+      </div>
+
+      <!-- Menu Links -->
+      <nav class="flex flex-col gap-6 md:gap-8 my-auto pl-4 md:pl-12">
+        <a href="/" class="text-6xl md:text-8xl font-display font-bold tracking-wide text-brand-orange hover:text-[#fbf9f4] transition-colors duration-200">
+          INICIO
+        </a>
+        <a href="/servicios" class="text-6xl md:text-8xl font-display font-bold tracking-wide text-brand-orange hover:text-[#fbf9f4] transition-colors duration-200">
+          SERVICIOS
+        </a>
+        <a href="/trabajos" class="text-6xl md:text-8xl font-display font-bold tracking-wide text-brand-orange hover:text-[#fbf9f4] transition-colors duration-200">
+          TRABAJOS
+        </a>
+        <a href="/contacto" class="text-6xl md:text-8xl font-display font-bold tracking-wide text-brand-orange hover:text-[#fbf9f4] transition-colors duration-200">
+          CONTACTO
+        </a>
+      </nav>
+
+      <!-- Menu Footer -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-t border-neutral-900 pt-6">
+        <div class="text-neutral-400 text-sm">
+          <p class="font-bold text-neutral-300">INFO@QUIEROPUDIN.COM</p>
+          <p>CALLE DE COLOMBIA 38, MADRID</p>
+        </div>
+        <div class="flex gap-6 uppercase tracking-wider font-semibold text-xs text-brand-orange">
+          <a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors">INSTAGRAM</a>
+          <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LINKEDIN</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client-side navigation toggle script -->
+    <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
+      const navMenu = document.getElementById('nav-menu');
+
+      if (menuToggle && menuClose && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          navMenu.classList.remove('translate-x-full');
+        });
+
+        menuClose.addEventListener('click', () => {
+          navMenu.classList.add('translate-x-full');
+        });
+
+        // Close menu on hitting escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !navMenu.classList.contains('translate-x-full')) {
+            navMenu.classList.add('translate-x-full');
+          }
+        });
+      }
+    </script>
+	</body>
+</html>

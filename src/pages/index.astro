@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Mascot from '../components/Mascot.astro';
+import HandIcon from '../components/HandIcon.astro';
+import Marquee from '../components/Marquee.astro';
+
+// We can define mock projects with curated Unsplash photos to look premium
+const projects = [
+  {
+    id: 1,
+    title: "Campañas de Contenido",
+    category: "FOOD",
+    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 2,
+    title: "Les Gigots",
+    category: "SOCIAL",
+    img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 3,
+    title: "Gin & Tonic Experience",
+    category: "PRODUCT",
+    img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 4,
+    title: "Narrativas Urbanas",
+    category: "SOCIAL",
+    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    id: 5,
+    title: "Entrevistas de Calle",
+    category: "EVENTOS",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+  }
+];
+---
+
+<Layout title="Pudin - Production Studio">
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 py-12 text-center flex flex-col items-center">
+    
+    <!-- Title & Mascot -->
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <h1 class="text-7xl sm:text-9xl md:text-[12rem] font-bold tracking-tighter leading-none select-none">
+        PUDIN
+      </h1>
+      <div class="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32">
+        <Mascot size={120} className="w-full h-full" />
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="max-w-3xl text-center flex flex-col gap-6 text-sm sm:text-base md:text-lg font-heading font-medium tracking-wide uppercase text-neutral-800 leading-relaxed px-4">
+      <p>
+        SOMOS EL CALDERO DE ORO AL FINAL DEL ARCOIRIS. 
+        DONDE LA VELOCIDAD Y LA CALIDAD DE PRODUCCIÓN VAN DE LA MANO. 
+        DONDE LAS IDEAS SE VUELVEN VIRALES.
+      </p>
+      <p class="text-brand-orange font-bold">
+        NARRATIVA DE CAMPAÑA A VELOCIDAD DE CONTENIDO.
+      </p>
+      <p class="text-neutral-500 font-bold">
+        SOMOS PUDIN, PRODUCTION STUDIO.
+      </p>
+    </div>
+
+    <!-- REEL Box -->
+    <div class="my-16 w-full max-w-sm aspect-[9/16] bg-black text-[#fbf9f4] flex items-center justify-center relative cursor-pointer group overflow-hidden rounded-xl shadow-2xl transition-all duration-300 hover:scale-[1.02] border-4 border-black hover:border-brand-orange">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(232,157,108,0.2)_0%,rgba(0,0,0,0.8)_100%)] opacity-80 z-10"></div>
+      
+      <!-- Placeholder Video Overlay -->
+      <div class="absolute inset-0 bg-cover bg-center filter grayscale group-hover:grayscale-0 transition-all duration-500" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=800&q=80');"></div>
+      
+      <span class="text-6xl md:text-7xl font-display font-bold tracking-widest text-[#fbf9f4] group-hover:text-brand-orange transition-colors duration-300 z-20 select-none">
+        REEL
+      </span>
+      
+      <!-- Play icon overlay -->
+      <div class="absolute bottom-6 right-6 z-20 w-12 h-12 rounded-full border-2 border-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
+        <svg class="w-6 h-6 fill-white ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- From Ideas Section -->
+  <section class="w-full bg-[#fbf9f4] py-12 flex flex-col items-center">
+    <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-center max-w-5xl uppercase px-4 mb-8">
+      FROM IDEAS TO VIRAL CONTENT
+    </h2>
+    
+    <!-- Mascot Row -->
+    <div class="flex justify-center items-center gap-2 sm:gap-6 overflow-hidden py-4 w-full max-w-2xl px-6">
+      {Array.from({ length: 6 }).map(() => (
+        <div class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+          <Mascot size={64} className="w-full h-full" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- El postre de la nonna -->
+  <section class="max-w-7xl mx-auto px-6 py-16 w-full">
+    <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8 md:gap-4 uppercase font-heading font-semibold text-sm md:text-base tracking-widest text-neutral-800">
+      <div class="w-full md:w-1/3 md:text-left text-neutral-600">
+        CONTENIDO RÁPIDO
+      </div>
+      
+      <div class="w-full md:w-1/3 text-center py-4">
+        <span class="text-xs text-neutral-400 block mb-1">EL POSTRE DE LA</span>
+        <span class="text-5xl sm:text-6xl md:text-7xl font-display font-bold tracking-tighter lowercase leading-none block">
+          no<span class="uppercase">NNa</span>
+        </span>
+      </div>
+      
+      <div class="w-full md:w-1/3 md:text-right text-neutral-600">
+        MISMA EXIGENCIA
+      </div>
+    </div>
+
+    <!-- Hand Pointer Icons -->
+    <div class="flex justify-center items-center gap-4 sm:gap-12 mt-12">
+      {Array.from({ length: 6 }).map(() => (
+        <HandIcon direction="down" className="w-8 h-8 sm:w-12 sm:h-12 text-brand-orange animate-bounce" />
+      ))}
+    </div>
+  </section>
+
+  <!-- Proyectos Destacados -->
+  <section class="w-full bg-brand-orange text-black py-16 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl sm:text-7xl font-display font-bold text-center uppercase tracking-wide mb-12">
+        PROYECTOS DESTACADOS
+      </h2>
+      
+      <!-- Project Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+        {projects.map((proj) => (
+          <a href={`/trabajos#${proj.category.toLowerCase()}`} class="group flex flex-col bg-black rounded-lg overflow-hidden relative shadow-lg aspect-[3/4] border-2 border-black hover:border-white transition-all duration-300">
+            <img 
+              src={proj.img} 
+              alt={proj.title} 
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-60 group-hover:opacity-85 transition-opacity duration-300"></div>
+            
+            <div class="absolute bottom-4 left-4 right-4 z-10 flex flex-col">
+              <span class="text-[10px] md:text-xs font-bold bg-brand-orange text-black px-2 py-0.5 rounded self-start mb-1 uppercase">
+                {proj.category}
+              </span>
+              <h3 class="text-sm md:text-base font-heading font-black text-[#fbf9f4] leading-tight truncate">
+                {proj.title}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Mascot & Explanatory section -->
+  <section class="max-w-5xl mx-auto px-6 py-20 text-center flex flex-col items-center gap-8">
+    <div class="flex items-center justify-center gap-6 md:gap-12 flex-wrap text-4xl sm:text-6xl md:text-7xl font-display font-bold uppercase tracking-tight">
+      <span>NARRATIVA DE CAMPAÑA</span>
+      <HandIcon direction="right" className="w-10 h-10 text-brand-orange animate-pulse" />
+      <span class="text-brand-orange text-5xl sm:text-7xl md:text-8xl">PUDIN</span>
+      <HandIcon direction="left" className="w-10 h-10 text-brand-orange animate-pulse" />
+      <span>VELOCIDAD DE CONTENIDO</span>
+    </div>
+
+    <div class="my-6">
+      <Mascot size={160} className="w-32 h-32 md:w-40 md:h-40" />
+    </div>
+
+    <p class="max-w-3xl text-sm sm:text-base md:text-lg font-heading font-medium tracking-wide uppercase text-neutral-800 leading-relaxed px-4">
+      EN PUDIN, LA PRODUCCIÓN TIENE BUENA SUERTE TODO EL TIEMPO. CREAMOS CONTENIDO RÁPIDO, CONSTANTE Y CONECTADO A UNA NARRATIVA MAYOR. PIEZAS QUE MANTIENEN VIVA LA CONVERSACIÓN, REFUERZAN LA CAMPAÑA Y HACEN AVANZAR LA MARCA SIN PERDER EL RUMBO.
+    </p>
+  </section>
+
+  <!-- Logos Marquee Section -->
+  <Marquee />
+</Layout>

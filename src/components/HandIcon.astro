@@ -1,0 +1,34 @@
+---
+interface Props {
+  direction?: 'down' | 'left' | 'right';
+  className?: string;
+  size?: number;
+}
+
+const { direction = 'down', className = "h-8 w-8", size = 32 } = Astro.props;
+
+// Rotation values based on direction
+const rotation = {
+  down: 'rotate-90',
+  left: 'rotate-180',
+  right: 'rotate-0',
+};
+
+const rotateClass = rotation[direction] || '';
+---
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  viewBox="0 0 24 24" 
+  width={size} 
+  height={size} 
+  class={`${className} ${rotateClass} transition-transform duration-200 hover:scale-110 select-none fill-none stroke-current text-black`}
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <!-- Beautiful Pointing Hand SVG outline (pointing right by default, then rotated) -->
+  <path d="M3 10h4v6H3z" fill="#e89d6c" stroke="#000000" stroke-width="2" />
+  <path d="M7 12h8a2 2 0 0 0 2-2 2 2 0 0 0-2-2h-3V5a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v7" stroke="#000000" stroke-width="2" />
+  <path d="M12 10h5a2 2 0 0 1 2 2 2 0 0 1-2 2h-5" stroke="#000000" stroke-width="2" />
+  <path d="M11 14h5a2 2 0 0 1 2 2 2 0 0 1-2 2h-6" stroke="#000000" stroke-width="2" />
+</svg>
