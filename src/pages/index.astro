@@ -4,6 +4,8 @@ import Mascot from '../components/Mascot.astro';
 import HandIcon from '../components/HandIcon.astro';
 import Marquee from '../components/Marquee.astro';
 
+const base = import.meta.env.BASE_URL;
+
 // We can define mock projects with curated Unsplash photos to look premium
 const projects = [
   {
@@ -139,7 +141,7 @@ const projects = [
       <!-- Project Grid -->
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
         {projects.map((proj) => (
-          <a href={`/trabajos#${proj.category.toLowerCase()}`} class="group flex flex-col bg-black rounded-lg overflow-hidden relative shadow-lg aspect-[3/4] border-2 border-black hover:border-white transition-all duration-300">
+          <a href={`${base}trabajos#${proj.category.toLowerCase()}`} class="group flex flex-col bg-black rounded-lg overflow-hidden relative shadow-lg aspect-[3/4] border-2 border-black hover:border-white transition-all duration-300">
             <img 
               src={proj.img} 
               alt={proj.title} 
