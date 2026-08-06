@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 		<link rel="icon" href={`${base}favicon.ico`} />
-		<meta name="generator" content={Astro.generator} />
+    <link data-service="adobe-fonts" data-category="marketing" rel="stylesheet" data-href="https://use.typekit.net/rfg7por.css" class="cmplz-activated">
 		
     <!-- SEO Meta Tags -->
     <title>{title}</title>
@@ -100,6 +100,14 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
         menuClose.addEventListener('click', () => {
           navMenu.classList.add('translate-x-full');
+        });
+
+        // Close menu when clicking any nav link
+        const navLinks = navMenu.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.add('translate-x-full');
+          });
         });
 
         // Close menu on hitting escape key

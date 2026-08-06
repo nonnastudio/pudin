@@ -1,37 +1,37 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
-<footer class="w-full bg-black text-[#fbf9f4] py-16 px-6 md:px-12 mt-auto border-t border-neutral-900">
+<footer class="w-full bg-black text-brand-peach py-16 px-6 md:px-12 mt-auto border-t border-brand-peach/20">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
     <!-- Left Column: Branding -->
-    <div class="flex items-baseline gap-4">
-      <span class="text-7xl md:text-9xl font-display font-bold text-brand-orange leading-none select-none">
+    <div class="flex items-start gap-4">
+      <span class="text-7xl md:text-9xl font-display font-bold text-brand-peach leading-none select-none">
         PUDIN
       </span>
-      <span class="text-lg md:text-xl font-heading font-light text-neutral-400 italic leading-none whitespace-nowrap">
+      <span class="text-sm md:text-base font-sans font-light text-brand-peach lowercase leading-tight whitespace-nowrap block mt-1">
         it's all about<br/>content
       </span>
     </div>
 
     <!-- Right Column: Info & Links -->
-    <div class="flex flex-col md:items-end gap-6 text-left md:text-right font-sans">
+    <div class="flex flex-col md:items-end gap-6 text-left md:text-right font-sans text-brand-peach">
       <div>
-        <a href="mailto:info@quieropudin.com" class="text-xl md:text-2xl font-medium text-neutral-200 hover:text-brand-orange transition-colors duration-200">
+        <a href="mailto:info@quieropudin.com" class="text-xl md:text-2xl font-medium text-brand-peach hover:text-brand-yellow transition-colors duration-200">
           info@quieropudin.com
         </a>
       </div>
       
-      <div class="text-neutral-400 text-sm md:text-base leading-relaxed">
+      <div class="text-brand-peach/90 text-sm md:text-base leading-relaxed">
         <p>CALLE DE COLOMBIA 38,</p>
         <p>CHAMARTÍN 28016 - MADRID</p>
-        <p class="mt-1 font-semibold text-neutral-300">+34 675 070 882</p>
+        <p class="mt-1 font-semibold">+34 675 070 882</p>
       </div>
 
       <div class="flex gap-6 mt-2 text-sm uppercase tracking-wider font-semibold">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange transition-colors">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-yellow transition-colors">
           Instagram
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange transition-colors">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-yellow transition-colors">
           LinkedIn
         </a>
       </div>
@@ -39,13 +39,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   </div>
 
   <!-- Bottom Bar -->
-  <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-neutral-950 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500 uppercase tracking-widest">
+  <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-brand-peach/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-brand-peach/80 uppercase tracking-widest">
     <div>
       TODOS LOS DERECHOS RESERVADOS @PUDIN
     </div>
     <div class="flex gap-4">
-      <a href={`${base}privacidad`} class="hover:text-brand-orange transition-colors">POLITICA DE PRIVACIDAD</a>
-      <a href={`${base}cookies`} class="hover:text-brand-orange transition-colors">POLITICA DE COOKIES</a>
+      <a href={`${base}privacidad`} class="hover:text-brand-yellow transition-colors">POLITICA DE PRIVACIDAD</a>
+      <a href={`${base}cookies`} class="hover:text-brand-yellow transition-colors">POLITICA DE COOKIES</a>
     </div>
   </div>
 </footer>

@@ -29,62 +29,58 @@ import Mascot from '../components/Mascot.astro';
       <input type="hidden" name="from_name" value="Pudin Website" />
 
       <!-- Form Fields Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
         <!-- NOMBRE -->
-        <div class="flex flex-col gap-2">
-          <label for="nombre" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
-            NOMBRE<span class="text-brand-orange">*</span>
+        <div class="flex flex-col">
+          <label for="nombre" class="text-center block text-xs font-bold uppercase tracking-widest text-neutral-800 mb-2">
+            NOMBRE*
           </label>
           <input 
             id="nombre"
             name="nombre"
             type="text"
             required
-            placeholder=""
-            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+            class="w-full bg-[#e89d6c] border-none text-black py-3 px-4 focus:outline-none focus:ring-2 focus:ring-black font-sans text-center text-sm font-medium transition-all"
           />
         </div>
 
         <!-- EMAIL -->
-        <div class="flex flex-col gap-2">
-          <label for="email" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
-            EMAIL<span class="text-brand-orange">*</span>
+        <div class="flex flex-col">
+          <label for="email" class="text-center block text-xs font-bold uppercase tracking-widest text-neutral-800 mb-2">
+            EMAIL*
           </label>
           <input 
             id="email"
             name="email"
             type="email"
             required
-            placeholder=""
-            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+            class="w-full bg-[#e89d6c] border-none text-black py-3 px-4 focus:outline-none focus:ring-2 focus:ring-black font-sans text-center text-sm font-medium transition-all"
           />
         </div>
 
         <!-- TELÉFONO -->
-        <div class="flex flex-col gap-2">
-          <label for="telefono" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+        <div class="flex flex-col">
+          <label for="telefono" class="text-center block text-xs font-bold uppercase tracking-widest text-neutral-800 mb-2">
             TELÉFONO
           </label>
           <input 
             id="telefono"
             name="telefono"
             type="tel"
-            placeholder=""
-            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+            class="w-full bg-[#e89d6c] border-none text-black py-3 px-4 focus:outline-none focus:ring-2 focus:ring-black font-sans text-center text-sm font-medium transition-all"
           />
         </div>
 
         <!-- ASUNTO -->
-        <div class="flex flex-col gap-2">
-          <label for="asunto" class="text-xs font-heading font-bold uppercase tracking-widest text-neutral-700">
+        <div class="flex flex-col">
+          <label for="asunto" class="text-center block text-xs font-bold uppercase tracking-widest text-neutral-800 mb-2">
             ASUNTO
           </label>
           <input 
             id="asunto"
             name="asunto"
             type="text"
-            placeholder=""
-            class="w-full bg-brand-orange/40 border-0 border-b-2 border-brand-orange text-black placeholder-transparent py-3 px-3 rounded-md focus:outline-none focus:bg-brand-orange/60 focus:border-black transition-all duration-200 font-heading font-medium text-sm"
+            class="w-full bg-[#e89d6c] border-none text-black py-3 px-4 focus:outline-none focus:ring-2 focus:ring-black font-sans text-center text-sm font-medium transition-all"
           />
         </div>
       </div>
@@ -120,14 +116,27 @@ import Mascot from '../components/Mascot.astro';
     </form>
   </section>
 
-  <!-- Mascot Row -->
-  <section class="w-full py-8 px-6 overflow-hidden">
-    <div class="flex justify-center items-end gap-2 sm:gap-6 max-w-3xl mx-auto flex-wrap">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div class={`transition-transform duration-1000 hover:-translate-y-3 ${i % 2 === 0 ? 'animate-bounce' : ''}`} style={`animation-delay: ${i * 0.15}s`}>
-          <Mascot size={90} className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24" />
+  <!-- Mascot Row (continuous loop from left to right) -->
+  <section class="w-full py-8 overflow-hidden">
+    <div class="relative w-full overflow-hidden max-w-2xl mx-auto flex">
+      <div class="flex w-[200%] animate-marquee-reverse">
+        <!-- Slide 1 -->
+        <div class="flex justify-around items-center w-1/2 gap-6 px-4 flex-shrink-0">
+          {Array.from({ length: 6 }).map(() => (
+            <div class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+              <Mascot size={64} className="w-full h-full" />
+            </div>
+          ))}
         </div>
-      ))}
+        <!-- Slide 2 -->
+        <div class="flex justify-around items-center w-1/2 gap-6 px-4 flex-shrink-0">
+          {Array.from({ length: 6 }).map(() => (
+            <div class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+              <Mascot size={64} className="w-full h-full" />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
