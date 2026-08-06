@@ -43,7 +43,7 @@ const projects = [
 
 <Layout title="Pudin - Production Studio">
   <!-- Hero Section -->
-  <section class="max-w-7xl mx-auto px-6 py-12 text-center flex flex-col items-center">
+  <section class="max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
     
     <!-- Title & Mascot -->
     <div class="flex items-center justify-center gap-4 mb-8 relative">
@@ -87,29 +87,23 @@ const projects = [
 
   <!-- From Ideas Section -->
   <section class="w-full bg-[#fbf9f4] py-12 flex flex-col items-center">
-    <h2 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-center max-w-5xl uppercase px-4 mb-8">
+    <h2 class="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight text-center max-w-5xl uppercase px-4 mb-8">
       FROM IDEAS TO VIRAL CONTENT
     </h2>
     
     <!-- Mascot Row (continuous loop from left to right) -->
-    <div class="relative w-full overflow-hidden py-4 max-w-2xl mx-auto flex">
-      <div class="flex w-[200%] animate-marquee-reverse">
-        <!-- Slide 1 -->
-        <div class="flex justify-around items-center w-1/2 gap-6 px-4 flex-shrink-0">
-          {Array.from({ length: 6 }).map(() => (
-            <div class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-              <Mascot size={64} className="w-full h-full" />
-            </div>
-          ))}
-        </div>
-        <!-- Slide 2 -->
-        <div class="flex justify-around items-center w-1/2 gap-6 px-4 flex-shrink-0">
-          {Array.from({ length: 6 }).map(() => (
-            <div class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
-              <Mascot size={64} className="w-full h-full" />
-            </div>
-          ))}
-        </div>
+    <div class="relative w-full max-w-5xl mx-auto overflow-hidden py-4">
+      <div class="flex w-max animate-marquee-reverse">
+        {Array.from({ length: 8 }).map(() => (
+          <div class="flex-shrink-0 px-5">
+            <Mascot size={128} className="w-24 h-24 sm:w-32 sm:h-32" />
+          </div>
+        ))}
+        {Array.from({ length: 8 }).map(() => (
+          <div class="flex-shrink-0 px-5">
+            <Mascot size={128} className="w-24 h-24 sm:w-32 sm:h-32" />
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -174,19 +168,19 @@ const projects = [
 
   <!-- Bottom Mascot & Explanatory section -->
   <section class="max-w-5xl mx-auto px-6 py-20 text-center flex flex-col items-center gap-8">
-    <div class="flex items-center justify-center gap-6 md:gap-12 flex-wrap text-4xl sm:text-6xl md:text-7xl font-display font-bold uppercase tracking-tight">
-      <span>NARRATIVA DE CAMPAÑA</span>
-      <HandIcon direction="right" className="w-10 h-10 text-brand-orange animate-pulse" />
-      <span class="text-brand-peach text-5xl sm:text-7xl md:text-8xl">PUDIN</span>
-      <HandIcon direction="left" className="w-10 h-10 text-brand-orange animate-pulse" />
-      <span>VELOCIDAD DE CONTENIDO</span>
+    <div class="flex items-center justify-center gap-3 md:gap-6 flex-nowrap whitespace-nowrap text-2xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight w-full">
+      <span class="shrink-0">NARRATIVA<br />DE CAMPAÑA</span>
+      <HandIcon direction="right" className="w-8 h-8 md:w-10 md:h-10 text-brand-orange shrink-0 animate-hand-right" />
+      <span class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl shrink-0">PUDIN</span>
+      <HandIcon direction="right" className="w-8 h-8 md:w-10 md:h-10 text-brand-orange shrink-0 animate-hand-left" />
+      <span class="shrink-0">VELOCIDAD<br />DE CONTENIDO</span>
     </div>
 
     <div class="my-6">
       <Mascot size={160} className="w-32 h-32 md:w-40 md:h-40" />
     </div>
 
-    <p class="max-w-3xl text-sm sm:text-base md:text-lg font-heading font-medium tracking-wide uppercase text-neutral-800 leading-relaxed px-4">
+    <p class="max-w-3xl text-sm sm:text-base md:text-lg font-heading font-sans tracking-wide uppercase text-neutral-800 leading-relaxed px-4">
       EN PUDIN, LA PRODUCCIÓN TIENE BUENA SUERTE TODO EL TIEMPO. CREAMOS CONTENIDO RÁPIDO, CONSTANTE Y CONECTADO A UNA NARRATIVA MAYOR. PIEZAS QUE MANTIENEN VIVA LA CONVERSACIÓN, REFUERZAN LA CAMPAÑA Y HACEN AVANZAR LA MARCA SIN PERDER EL RUMBO.
     </p>
   </section>

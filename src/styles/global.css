@@ -49,6 +49,8 @@
   
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-hand-right: hand-right 1s ease-in-out infinite;
+  --animate-hand-left: hand-left 1s ease-in-out infinite;
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -57,6 +59,16 @@
   @keyframes marquee-reverse {
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0%); }
+  }
+  @keyframes hand-right {
+    0%   { transform: translateX(0);    opacity: 1; }
+    60%  { transform: translateX(8px);  opacity: 1; }
+    100% { transform: translateX(0);    opacity: 1; }
+  }
+  @keyframes hand-left {
+    0%   { transform: translateX(0);    opacity: 1; }
+    60%  { transform: translateX(-8px); opacity: 1; }
+    100% { transform: translateX(0);    opacity: 1; }
   }
 }
 
