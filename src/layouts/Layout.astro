@@ -24,8 +24,19 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-		<link rel="icon" href={`${base}favicon.ico`} />
+		<!-- Favicons & App Icons -->
+		<link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+		<link rel="icon" type="image/png" sizes="16x16" href={`${base}favicon-16x16.png`} />
+		<link rel="icon" type="image/png" sizes="32x32" href={`${base}favicon-32x32.png`} />
+		<link rel="icon" type="image/png" sizes="48x48" href={`${base}favicon-48x48.png`} />
+		<link rel="icon" type="image/png" sizes="96x96" href={`${base}icon-96x96.png`} />
+		<link rel="icon" type="image/png" sizes="128x128" href={`${base}icon-128x128.png`} />
+		<link rel="icon" type="image/png" sizes="256x256" href={`${base}icon-256x256.png`} />
+		<link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
+		<link rel="manifest" href={`${base}site.webmanifest`} />
+		<meta name="msapplication-config" content={`${base}browserconfig.xml`} />
+		<meta name="msapplication-TileColor" content="#ea460a" />
+		<meta name="theme-color" content="#ea460a" />
     <link data-service="adobe-fonts" data-category="marketing" rel="stylesheet" data-href="https://use.typekit.net/rfg7por.css" class="cmplz-activated">
 		
     <!-- SEO Meta Tags -->
